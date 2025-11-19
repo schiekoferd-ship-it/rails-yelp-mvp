@@ -1,0 +1,27 @@
+
+<div class="container mt-4">
+  <h2 class="mb-4 pb-2 border-bottom">Restaurant Overview</h2>
+  <div class="row">
+    <% @restaurants.each do |restaurant| %>
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <div class="card h-100">
+          <%= link_to restaurant_path(restaurant.id), class: "text-decoration-none text-reset" do %>
+          <img
+            src="https://api.sourcesplash.com/i/random?q=<%= restaurant.name %>"
+            alt="<%= restaurant.category %> restaurant"
+            class="card-img-top object-fit-cover"
+            style="height: 200px;"
+          >
+
+          <div class="card-body">
+            <h5 class="card-title"><%= restaurant.name %></h5>
+            <p class="card-text"><%= restaurant.category.upcase %> restaurant</p>
+            <%# <%= link_to "Go to restaurant", restaurant_path(restaurant.id) %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to "Add a new restaurant", restaurants_new_path , class: "btn btn-primary" %>
+</div>

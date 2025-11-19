@@ -11,7 +11,7 @@ before_action :set_restaurant, only: [:new, :create]
     if @review.save
       redirect_to restaurant_path(@restaurant)
     else
-      render "restaurants/show", status: :unprocessable_content
+      render "restaurants/show", status: :unprocessable_entity
     end
   end
 
